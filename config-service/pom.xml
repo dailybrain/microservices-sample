@@ -11,10 +11,10 @@
 	<description>Configuration microservice</description>
 
 	<parent>
-			<groupId>dailybrain</groupId>
-			<artifactId>microservice-sample-parent</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-			<relativePath>../</relativePath>
+		<groupId>dailybrain</groupId>
+		<artifactId>microservices-sample-parent</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+		<relativePath>../</relativePath>
 	</parent>
 
 	<properties>

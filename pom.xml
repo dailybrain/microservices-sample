@@ -11,12 +11,13 @@
     <modules>
         <module>config-service</module>
         <module>discovery-service</module>
+        <module>reservation-service</module>
     </modules>
 
     <parent>
         <groupId>org.springframework.cloud</groupId>
         <artifactId>spring-cloud-starter-parent</artifactId>
-        <version>Angel.SR6</version>
+        <version>Brixton.RELEASE</version>
         <relativePath/>
         <!-- lookup parent from repository -->
     </parent>
@@ -26,6 +27,7 @@
         <java.version>1.8</java.version>
         <docker.plugin.version>0.4.10</docker.plugin.version>
         <docker.image.prefix>dailybrain</docker.image.prefix>
+        <spring.cloud.starter.parent.version>Brixton.RELEASE</spring.cloud.starter.parent.version>
     </properties>
 
     <dependencyManagement>
@@ -33,7 +35,7 @@
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-starter-parent</artifactId>
-                <version>Angel.SR6</version>
+                <version>Brixton.RELEASE</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>

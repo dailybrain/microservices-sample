@@ -32,3 +32,13 @@ reservation-service:
    - mysql
    - discovery-service
    - config-service
+edge-service:
+  image: dailybrain/edge-service
+  environment:
+   - SPRING_PROFILES_ACTIVE=docker
+   - DOCKER_IP=$DOCKER_IP
+  ports:
+   - 9999:9999
+  links:
+   - discovery-service
+   - config-service

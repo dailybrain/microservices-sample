@@ -4,13 +4,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>dailybrain</groupId>
-    <artifactId>microservice-sample-parent</artifactId>
+    <artifactId>microservices-sample-parent</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <modules>
         <module>config-service</module>
-        <module>eureka-service</module>
+        <module>discovery-service</module>
     </modules>
 
     <parent>

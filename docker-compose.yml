@@ -1,0 +1,16 @@
+config-service:
+  image: dailybrain/config-service
+  environment:
+   - SPRING_PROFILES_ACTIVE=docker
+   - DOCKER_IP=$DOCKER_IP
+  ports:
+   - 8888:8888
+discovery-service:
+  image: dailybrain/discovery-service
+  ports:
+   - 8761:8761
+  environment:
+   - SPRING_PROFILES_ACTIVE=docker
+   - DOCKER_IP=$DOCKER_IP
+  links:
+   - config-service

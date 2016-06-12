@@ -10,6 +10,7 @@
 
     <modules>
         <module>config-service</module>
+        <module>eureka-service</module>
     </modules>
 
     <parent>

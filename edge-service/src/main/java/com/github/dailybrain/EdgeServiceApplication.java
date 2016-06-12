@@ -29,7 +29,7 @@ import java.util.stream.Collectors;
 
 @EnableZuulProxy
 @EnableHystrix
-//@EnableBinding(Source.class)
+@EnableBinding(Source.class)
 @EnableDiscoveryClient
 @EnableCircuitBreaker
 @SpringBootApplication
@@ -61,7 +61,6 @@ class ReservationEdgeController {
         return new ArrayList<>();
     }
 
-    /*
     @Autowired
     private Source outputChannelSource;
 
@@ -73,7 +72,6 @@ class ReservationEdgeController {
                 org.springframework.messaging.support.MessageBuilder.withPayload(r.getReservationName()).build()
         );
     }
-    */
 
     @HystrixCommand(fallbackMethod = "fallback")
     @RequestMapping(method = RequestMethod.GET, value = "/names")

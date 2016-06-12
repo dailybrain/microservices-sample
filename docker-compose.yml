@@ -5,6 +5,13 @@ mysql:
   environment:
    - MYSQL_ROOT_PASSWORD=dbpass
    - MYSQL_DATABASE=dev
+rabbitmq:
+  image: rabbitmq:3
+  ports:
+   - 15672:15672
+  environment:
+   - MYSQL_ROOT_PASSWORD=dbpass
+   - MYSQL_DATABASE=dev
 config-service:
   image: dailybrain/config-service
   environment:
@@ -32,6 +39,7 @@ reservation-service:
    - mysql
    - discovery-service
    - config-service
+   - rabbitmq
 edge-service:
   image: dailybrain/edge-service
   environment:
@@ -42,3 +50,4 @@ edge-service:
   links:
    - discovery-service
    - config-service
+   - rabbitmq

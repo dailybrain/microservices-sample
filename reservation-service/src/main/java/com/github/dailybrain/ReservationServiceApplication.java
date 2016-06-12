@@ -5,9 +5,13 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.stream.annotation.EnableBinding;
+import org.springframework.cloud.stream.messaging.Sink;
 import org.springframework.context.annotation.Profile;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
+import org.springframework.integration.annotation.MessageEndpoint;
+import org.springframework.integration.annotation.ServiceActivator;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.Entity;
@@ -16,6 +20,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.util.stream.Stream;
 
+@EnableBinding(Sink.class)
 @EnableDiscoveryClient
 @SpringBootApplication
 public class ReservationServiceApplication {
@@ -24,6 +29,23 @@ public class ReservationServiceApplication {
 		SpringApplication.run(ReservationServiceApplication.class, args);
 	}
 }
+
+@MessageEndpoint
+class ReservationProcessor {
+
+    private final ReservationRepository reservationRepository;
+
+    @Autowired
+    public ReservationProcessor(ReservationRepository reservationRepository) {
+        this.reservationRepository = reservationRepository;
+    }
+
+    @ServiceActivator(inputChannel = "input")
+    public void acceptNewReservations(String rn) {
+        this.reservationRepository.save(new Reservation(rn));
+    }
+}
+
 
 @Component
 @Profile({"docker", "development"})

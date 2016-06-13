@@ -6,7 +6,7 @@ mysql:
    - MYSQL_ROOT_PASSWORD=dbpass
    - MYSQL_DATABASE=dev
 rabbitmq:
-  image: rabbitmq:3
+  image: rabbitmq:3-management
   ports:
    - 15672:15672
   environment:

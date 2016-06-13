@@ -13,6 +13,7 @@
         <module>discovery-service</module>
         <module>reservation-service</module>
         <module>edge-service</module>
+        <module>zipkin-service</module>
     </modules>
 
     <parent>

@@ -40,6 +40,7 @@ reservation-service:
    - discovery-service
    - config-service
    - rabbitmq
+   - zipkin-service
 edge-service:
   image: dailybrain/edge-service
   environment:
@@ -51,3 +52,13 @@ edge-service:
    - discovery-service
    - config-service
    - rabbitmq
+   - zipkin-service
+zipkin-service:
+  image: dailybrain/zipkin-service
+  environment:
+   - SPRING_PROFILES_ACTIVE=docker
+   - DOCKER_IP=$DOCKER_IP
+  ports:
+   - 9411:9411
+  links:
+   - config-service

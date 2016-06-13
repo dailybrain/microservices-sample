@@ -16,6 +16,12 @@ Launch:
 
     ./run.sh
 
+
+Scaling
+
+    docker-compose scale reservation-service=2
+
+
 Clean:
 
     docker stop $(docker ps -q)

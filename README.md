@@ -28,3 +28,12 @@ Clean:
     docker rm $(docker ps -a -q)
 
 
+Open Circuit Breaker
+
+    ab -k -c 350 -n 20000 http://192.168.99.100:9999/reservations/names
+
+
+Insert in Queue:
+
+    for i in {1..20}; do curl -H "Content-Type: application/json" -XPOST http://192.168.99.100:9999/reservations -d '{ "reservationName" : "Offline $i" }'; done
+

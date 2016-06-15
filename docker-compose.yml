@@ -40,7 +40,7 @@ reservation-service:
    - discovery-service
    - config-service
    - rabbitmq
-   - zipkin-service
+   - zipkin-dashboard
 edge-service:
   image: dailybrain/edge-service
   environment:
@@ -52,9 +52,9 @@ edge-service:
    - discovery-service
    - config-service
    - rabbitmq
-   - zipkin-service
-zipkin-service:
-  image: dailybrain/zipkin-service
+   - zipkin-dashboard
+zipkin-dashboard:
+  image: dailybrain/zipkin-dashboard
   environment:
    - SPRING_PROFILES_ACTIVE=docker
    - DOCKER_IP=$DOCKER_IP

@@ -13,7 +13,7 @@
         <module>discovery-service</module>
         <module>reservation-service</module>
         <module>edge-service</module>
-        <module>zipkin-service</module>
+        <module>zipkin-dashboard</module>
         <module>hystrix-dashboard</module>
     </modules>
 

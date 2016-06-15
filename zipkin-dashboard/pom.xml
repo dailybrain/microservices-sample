@@ -4,12 +4,12 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.github.dailybrain</groupId>
-	<artifactId>zipkin-service</artifactId>
+	<artifactId>zipkin-dashboard</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>zipkin-service</name>
-	<description>Zipkin microservice</description>
+	<name>zipkin-dashboard</name>
+	<description>Zipkin dashboard</description>
 
 	<parent>
 		<groupId>dailybrain</groupId>
@@ -35,7 +35,7 @@
 			<groupId>io.zipkin.java</groupId>
 			<artifactId>zipkin-server</artifactId>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>io.zipkin</groupId>
 			<artifactId>zipkin-ui</artifactId>
@@ -47,7 +47,7 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
-	
+
 	<build>
 		<plugins>
 			<plugin>
@@ -80,6 +80,6 @@
             </plugin>
 		</plugins>
 	</build>
-	
+
 
 </project>

@@ -5,6 +5,17 @@ mysql:
   environment:
    - MYSQL_ROOT_PASSWORD=dbpass
    - MYSQL_DATABASE=dev
+phpmyadmin:
+  image: phpmyadmin/phpmyadmin
+  ports:
+   - 8080:80
+  environment:
+   - PMA_ARBITRARY=1
+   - PMA_HOST=mysql
+   - PMA_USER=root
+   - PMA_PASSWORD=dbpass
+  links:
+   - mysql
 rabbitmq:
   image: rabbitmq:3-management
   ports:

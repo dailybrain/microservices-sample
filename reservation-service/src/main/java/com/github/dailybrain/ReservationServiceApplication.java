@@ -47,6 +47,7 @@ class ReservationProcessor {
 }
 
 
+/*
 @Component
 @Profile({"docker", "development"})
 class DummyCLR implements CommandLineRunner {
@@ -68,6 +69,7 @@ class DummyCLR implements CommandLineRunner {
 
     }
 }
+*/
 
 /*
 @RestController
@@ -93,13 +95,11 @@ interface ReservationRepository extends JpaRepository<Reservation, Long> {
 @Entity
 class Reservation {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     private String reservationName;
 
-    Reservation() {
+    public Reservation() {
 
     }
 
@@ -107,6 +107,8 @@ class Reservation {
         this.reservationName = reservationName;
     }
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     public Long getId() {
 
         return id;
@@ -116,6 +118,13 @@ class Reservation {
         return reservationName;
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setReservationName(String reservationName) {
+        this.reservationName = reservationName;
+    }
 
     @Override
     public String toString() {
